@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>EchoScript</title>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+			rel="stylesheet" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@100..800&family=Arima:wght@100..700&family=Bungee+Tint&display=swap"
+			rel="stylesheet" />
+		<link rel="stylesheet" href="/css/post.css" />
+	</head>
+	<body>
+		<!-- Main content -->
+		<div class="background-section">
+			<nav>
+				<div class="logo">EchoScript</div>
+				<ul class="nav-links">
+					<li><a href="/home">Home</a></li>
+					<li><a href="/post/blog">Blog</a></li>
+					<li><a href="/profile/bio">Profile</a></li>
+					<li><a href="#contact">Contact</a></li>
+					<li><a href="/about">About</a></li>
+				</ul>
+				<% if (user) { %>
+				<a href="/logout" class="logout-btn">Logout</a>
+				<% } else { %>
+				<a href="/sign" class="signup-btn">Sign Up</a>
+				<% } %>
+			</nav>
+
+			<section class="banner-section">
+				<div class="banner-content">
+					<h1 class="banner-heading">Welcome to My Blog</h1>
+					<p class="banner-description">
+						Explore the latest articles, tutorials, and tips on various topics.
+					</p>
+					<div class="button-container">
+						<a
+							href="/post/blog"
+							title="Get quote now"
+							class="explore-button"
+							role="button">
+							Explore More
+						</a>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="swiper mySwiper">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<img src="/images/priscilla-du-preez-zSA_hGNq_7M-unsplash.jpg" />
+					<div class="swiper-paragraph">
+						<p>
+							Soft, chewy brown cookies with rich chocolate chips and caramel
+							flavor.
+						</p>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<img src="/images/bady-abbas-chrXKN7J8ic-unsplash.jpg" />
+					<div class="swiper-paragraph">
+						<p>
+							Yoga is a practice that combines movement, breath, and
+							mindfulness.
+						</p>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<img src="/images/clay-banks-GX8KBbVmC6c-unsplash.jpg" />
+					<div class="swiper-paragraph">
+						<p>A library is a quiet place for reading and learning.</p>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<img src="/images/evgeni-evgeniev-ggVH1hoQAac-unsplash.jpg" />
+					<div class="swiper-paragraph">
+						<p>
+							Majestic peaks towering high, offering breathtaking views and
+							adventure.
+						</p>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<img src="/images/krists-luhaers-YhC216tAYAg-unsplash.jpg" />
+					<div class="swiper-paragraph">
+						<p>
+							A photoshoot captures images creatively, often for professional
+							purposes.
+						</p>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<img src="/images/laura-adai-xSMIuUDMMSY-unsplash.jpg" />
+					<div class="swiper-paragraph">
+						<p>
+							Art creativity is expressing ideas uniquely through various
+							artistic forms.
+						</p>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<img src="/images/peter-kalonji-LH74lRYvBY4-unsplash.jpg" />
+					<div class="swiper-paragraph">
+						<p>
+							Beauty is harmony, grace, and radiance that captivates hearts.
+						</p>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<img src="/images/thisisengineering-w_zE6qlkQKA-unsplash.jpg" />
+					<div class="swiper-paragraph">
+						<p>
+							Technology is innovation that transforms lives, enhances
+							communication, and efficiency.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+
+		<!-- Blog posts -->
+		<section>
+			<div class="post-section">
+				<div class="post-section-contanier">
+					<div class="post-image">
+						<img src="/images/maxim-hopman-IayKLkmz6g0-unsplash.jpg" alt="" />
+						<div class="post-image-paragraph">
+							<p>
+								Technology is the application of scientific knowledge to solve
+								practical problems.
+							</p>
+						</div>
+					</div>
+					<div class="post-image">
+						<img
+							src="/images/element5-digital-ceWgSMd8rvQ-unsplash.jpg"
+							alt="" />
+						<div class="post-image-paragraph">
+							<p>
+								Beauty cosmetics enhance appearance using skincare, makeup, and
+								personal care products.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="grid-container">
+					<% rnproduct.forEach(function(elem) { %>
+					<div class="card">
+						<!-- User Info -->
+
+						<!-- Post Image -->
+						<div class="post-image-container">
+							<img
+								class="post-image"
+								src="/images/uploads/<%= elem.picture %>"
+								alt="Post Image" />
+						</div>
+
+						<!-- Post Content -->
+						<div class="post-content">
+							<!-- Blog Title -->
+							<h2 class="post-title"><%= elem.title %></h2>
+
+							<!-- Blog Description -->
+							<p class="description"><%= elem.description %></p>
+						</div>
+					</div>
+					<% }) %>
+				</div>
+
+				<div class="post-section-contanier">
+					<div class="post-image">
+						<img src="/images/joseph-chan-uTFiFYeQhlI-unsplash.jpg" alt="" />
+						<div class="post-image-paragraph">
+							<p>
+								Hilles Travel offers personalized, unique travel experiences and
+								seamless journeys worldwide.
+							</p>
+						</div>
+					</div>
+					<div class="post-image">
+						<img
+							src="/images/jeffrey-workman-YvkH8R1zoQM-unsplash.jpg"
+							alt="" />
+						<div class="post-image-paragraph">
+							<p>
+								A waterfall cascades water over cliffs, creating breathtaking
+								natural beauty.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="container">
+				<div class="blogs">
+					<% rnpost.forEach(function(elem) { %>
+					<div class="card-cont">
+						<div class="card-paragraph">
+							<h4 class="title"><%= elem.title%></h4>
+							<span>Category: <%= elem.category %></span>
+							<p class="text"><%= elem.description%></p>
+						</div>
+						<div class="card-image">
+							<img src="/images/uploads/<%= elem.picture%>" class="image" />
+						</div>
+
+						<hr class="divider" />
+					</div>
+
+					<% }) %>
+				</div>
+			</div>
+		</section>
+
+		<footer class="footer">
+			<div class="footer-links">
+				<a href="/home">Home</a>
+				<a href="/post/blog">Blog</a>
+				<a href="/profile/bio">Profile</a>
+				<a href="#">Contact</a>
+				<a href="/about">About</a>
+			</div>
+			<div class="social-icons">
+				<a href="#"><i class="ri-facebook-circle-fill icon"></i></a>
+				<a href="#"><i class="ri-instagram-fill icon"></i></a>
+				<a href="#"><i class="ri-twitter-fill icon"></i></a>
+				<a href="#"><i class="ri-github-fill icon"></i></a>
+				<a href="#"><i class="ri-youtube-fill icon"></i></a>
+			</div>
+			<div class="footer-bottom">
+				<p>&copy; 2020 Your Company, Inc. All rights reserved.</p>
+			</div>
+		</footer>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+		<script src="/JS/script.js"></script>
+	</body>
+</html>

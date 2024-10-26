@@ -1,0 +1,131 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #000; /* Slate-950 */
+	font-family: "Ubuntu", sans-serif;
+	font-weight: 300;
+	font-style: normal;
+}
+
+.container {
+	max-width: 768px;
+	margin: 40px auto;
+	background-color: #000;
+	padding: 20px;
+	border: 2px solid white;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.header h1 {
+	font-size: 24px;
+	color: #2d3748; /* Gray-800 */
+}
+
+.form-group {
+	margin-bottom: 20px;
+}
+
+.form-group label {
+	font-size: 14px;
+	font-weight: bold;
+	color: #4a5568; /* Gray-700 */
+	display: block;
+	margin-bottom: 8px;
+}
+
+.upload-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.upload-box {
+	width: 100%;
+	height: 120px;
+	border: 2px dashed #d1d5db; /* Gray-300 */
+	border-radius: 8px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #f9fafb; /* Gray-100 */
+	transition: background-color 0.3s ease;
+}
+
+.upload-box:hover {
+	background-color: #f3f4f6;
+}
+
+.upload-content {
+	text-align: center;
+}
+
+.upload-icon {
+	width: 40px;
+	height: 40px;
+	margin-bottom: 8px;
+	color: #a0aec0; /* Gray-400 */
+}
+
+.upload-box p {
+	color: #6b7280; /* Gray-500 */
+}
+
+.hidden-input {
+	display: none;
+}
+
+input[type="text"],
+textarea {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #d1d5db; /* Gray-300 */
+	border-radius: 6px;
+	font-size: 14px;
+	outline: none;
+	transition: border 0.3s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+	border-color: #6366f1; /* Indigo-500 */
+	box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2); /* Indigo-500 ring */
+}
+
+textarea {
+	resize: none;
+}
+
+.submit-btn-container {
+	text-align: center;
+}
+
+.submit-btn {
+	background-color: #4f46e5; /* Indigo-600 */
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	font-size: 16px;
+	transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+	background-color: #4338ca; /* Indigo-700 */
+}
+
+.submit-btn:focus {
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.5);
+}

@@ -1,0 +1,339 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	background-color: black;
+	font-family: "Ubuntu", sans-serif;
+	font-weight: 300;
+	font-style: normal;
+}
+
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: linear-gradient(90deg, #4e4d4d, #070606);
+	padding: 15px 20px;
+	position: relative;
+	border-bottom: 2px solid white;
+}
+
+.logo {
+	font-size: 28px;
+	font-weight: bold;
+	color: white;
+	letter-spacing: 2px;
+}
+
+.nav-links {
+	list-style: none;
+	display: flex;
+	align-items: center;
+}
+
+.nav-links li {
+	margin-left: 20px;
+}
+
+.nav-links a {
+	text-decoration: none;
+	font-size: 18px;
+	color: white;
+	padding: 8px 15px;
+	border-radius: 25px;
+	transition: all 0.3s ease-in-out;
+}
+.btn {
+	background-color: #000000;
+	height: 40px;
+	width: 100px;
+	color: #fff;
+	border: 2px solid white;
+	border-radius: 10px;
+}
+
+.container {
+	height: 100%;
+	padding: 10px;
+	width: 100%;
+	margin-top: 20px;
+	display: flex;
+}
+
+.blogs {
+	width: 100%;
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+
+.card {
+	background: #000;
+	transition: background-color 0.3s ease, color 0.3s ease;
+	width: 300px;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 4px 6px rgba(230, 223, 223, 0.1);
+}
+.card-user-image {
+	display: flex;
+	gap: 20px;
+	background: linear-gradient(90deg, #4e4d4d, #070606);
+	width: 100%;
+	height: 60px;
+}
+.avatar {
+	height: 60px;
+}
+.avatar img {
+	border-radius: 50%;
+	height: 55px;
+	width: 55px;
+	padding-left: 5px;
+	padding-top: 5px;
+}
+.card-user {
+	font-size: 15px;
+	color: #fff;
+	padding-top: 10px;
+}
+.card-user p {
+	margin-bottom: 5px;
+}
+.card-paragraph {
+	height: 30px;
+	padding: 10px;
+}
+.card-paragraph h4 {
+	font-size: 18px;
+	color: #fff;
+}
+.card-category {
+	padding: 10px;
+	overflow: hidden;
+}
+.card-category span {
+	font-size: 17px;
+	color: #fff;
+}
+.card-category p {
+	text-align: justify;
+	height: 150px;
+	font-size: 14px;
+	margin-top: 5px;
+	line-height: 20px;
+	overflow: hidden;
+	color: #fff;
+}
+.card-image {
+	padding-left: 10px;
+	padding-right: 10px;
+	height: 200px;
+	width: 100%;
+}
+
+.card-image img {
+	height: 100%;
+	width: 100%;
+	border: 2px solid white;
+}
+.divider {
+	margin-top: 10px;
+	border-top: 2px solid #fff;
+}
+.action-icons {
+	padding: 10px;
+	background: linear-gradient(90deg, #4e4d4d, #070606);
+	display: flex;
+	gap: 20px;
+}
+
+.icon-group a {
+	text-decoration: none;
+}
+.icon-like {
+	color: red;
+	font-size: 1.5rem;
+}
+.icon-dislike {
+	font-size: 1.5rem;
+	color: #060606;
+}
+.icon-chat {
+	font-size: 1.5rem;
+}
+.icon-delete a {
+	font-size: 1.5rem;
+	text-decoration: none;
+	color: #000;
+}
+.footer {
+	text-align: center;
+	margin-top: 20px;
+	padding: 20px;
+	background-color: #000;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	border-top: 2px solid white;
+}
+
+.footer-links {
+	margin-bottom: 20px;
+}
+
+.footer-links a {
+	margin: 0 15px;
+	color: #edebeb;
+	text-decoration: none;
+	font-size: 16px;
+}
+
+.footer-links a:hover {
+	text-decoration: underline;
+}
+
+.social-icons {
+	margin-bottom: 20px;
+}
+
+.social-icons a {
+	margin: 0 10px;
+	display: inline-block;
+	text-decoration: none;
+}
+
+.icon {
+	font-size: 30px;
+	color: rgb(177, 177, 243);
+}
+
+.footer-bottom {
+	font-size: 14px;
+	color: #999;
+}
+
+.popup-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+	display: none;
+	background-color: #000;
+}
+
+/* Popup content */
+.popup-con {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+.popup {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 10px;
+	width: 500px;
+	box-shadow: 0 4px 8px white;
+	position: relative;
+}
+
+/* Close Button */
+.close-comment {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+
+.close-comment i {
+	cursor: pointer;
+	font-size: 20px;
+	color: #333;
+}
+
+/* Comment Section */
+.comment-header {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.comment-header img {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	margin-right: 10px;
+}
+
+.comment-header .username {
+	font-size: 14px;
+	font-weight: bold;
+	color: #555;
+}
+
+.comment-body p {
+	font-size: 20px;
+	color: #333;
+	margin-bottom: 15px;
+	font-weight: normal;
+}
+
+/* Comment Input Section */
+.comment-input-section {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+}
+
+.comment-textarea {
+	width: 100%;
+	height: 80px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	padding: 10px;
+	font-size: 14px;
+	resize: none;
+	margin-bottom: 10px;
+}
+
+.submit-btn {
+	background-color: #4caf50;
+	color: white;
+	padding: 10px;
+	font-size: 14px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	align-self: flex-end;
+}
+
+.submit-btn:hover {
+	background-color: #45a049;
+}
+
+/* Read More Button */
+.read-more-container {
+	text-align: center;
+	margin: 20px 0;
+}
+
+.read-more-btn {
+	background-color: #008cba;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	font-size: 14px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.read-more-btn:hover {
+	background-color: #007b9a;
+}
+
+/* Hidden Comment Class */
+.hidden-comment {
+	display: none;
+}

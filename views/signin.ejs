@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>EchoScript</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@100..800&family=Arima:wght@100..700&family=Bungee+Tint&display=swap"
+			rel="stylesheet" />
+		<link rel="stylesheet" href="/css/signin.css" />
+	</head>
+	<body>
+		<div
+			class="bg-cover bg-fixed"
+			style="
+				background-image: url('https://img.freepik.com/free-photo/gadgets-black-background_53876-31670.jpg?t=st=1724405605~exp=1724409205~hmac=ab9ef7ddc4931d6eeb4654046c0441707deb313e659440805c9b5a137f38e3dd&w=900');
+			">
+			<div class="container">
+				<div class="form-container">
+					<div class="text-center">
+						<h1>Sign in</h1>
+						<p>Sign in below to access your account</p>
+					</div>
+					<div class="mt-5">
+						<form action="/loged" method="post">
+							<div class="input-group">
+								<input
+									type="email"
+									name="email"
+									id="email"
+									placeholder=" "
+									required />
+								<label for="email">Email Address</label>
+							</div>
+							<div class="input-group">
+								<input
+									type="password"
+									name="password"
+									id="password"
+									placeholder=" "
+									required />
+								<label for="password">Password</label>
+							</div>
+							<button type="submit">Sign in</button>
+						</form>
+						<p class="signup">
+							Don't have an account yet?
+							<a href="/sign">Sign up</a>.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

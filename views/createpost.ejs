@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>EchoScript</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@100..800&family=Arima:wght@100..700&family=Bungee+Tint&display=swap"
+			rel="stylesheet" />
+		<link rel="stylesheet" href="/css/create.css" />
+	</head>
+	<body>
+		<div class="container">
+			<!-- Header -->
+			<div class="header">
+				<h1>Create a New Post</h1>
+			</div>
+
+			<!-- Post Image Upload -->
+			<form action="/post/creates" method="post" enctype="multipart/form-data">
+				<div class="form-group">
+					<label for="postImage">Upload Post Image</label>
+					<div class="upload-container">
+						<label class="upload-box">
+							<div class="upload-content">
+								<svg
+									class="upload-icon"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
+									xmlns="http://www.w3.org/2000/svg">
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M7 16l-4-4m0 0l4-4m-4 4h18M3 12h18m-5 4v8m0-8v-8m5 8V4M16 12H3" />
+								</svg>
+								<p>Click to upload or drag and drop</p>
+								<input
+									id="postImage"
+									type="file"
+									name="picture"
+									class="hidden-input" />
+							</div>
+						</label>
+					</div>
+				</div>
+
+				<!-- Title -->
+				<div class="form-group">
+					<label for="postTitle">Post Title</label>
+					<input
+						id="postTitle"
+						type="text"
+						name="title"
+						placeholder="Enter the title" />
+				</div>
+
+				<!-- Description -->
+				<div class="form-group">
+					<label for="postDescription">Post Description</label>
+					<textarea
+						id="postDescription"
+						rows="5"
+						name="description"
+						placeholder="Write your post description"></textarea>
+				</div>
+
+				<!-- Category -->
+				<div class="form-group">
+					<label for="postCategory">Category</label>
+					<input
+						id="postCategory"
+						type="text"
+						name="category"
+						placeholder="Create Category" />
+				</div>
+
+				<!-- Submit Button -->
+				<div class="submit-btn-container">
+					<button type="submit" class="submit-btn">Create Post</button>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

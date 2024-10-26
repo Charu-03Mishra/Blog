@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>EchoScript</title>
+
+		<link
+			href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+			rel="stylesheet" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@100..800&family=Arima:wght@100..700&family=Bungee+Tint&display=swap"
+			rel="stylesheet" />
+		<link rel="stylesheet" href="/css/blog.css" />
+	</head>
+	<body>
+		<!-- Navbar -->
+		<nav>
+			<div class="logo">EchoScript</div>
+
+			<ul class="nav-links">
+				<li><a href="/home">Home</a></li>
+				<li><a href="/post/blog">Blog</a></li>
+				<li><a href="/profile/bio">Profile</a></li>
+				<li><a href="#contact">Contact</a></li>
+				<li><a href="#">About</a></li>
+				<li>
+					<a href="/post/create">
+						<button class="btn">Create Post</button>
+					</a>
+				</li>
+			</ul>
+		</nav>
+
+		<!-- Main Content -->
+
+		<div>
+			<!-- Blog Posts -->
+			<div class="container">
+				<div class="blogs">
+					<% blog.reverse().forEach(function(elem) { %>
+					<div class="card">
+						<div class="card-user-image">
+							<div class="avatar">
+								<img src="/images/uploads/<%=elem.user.Image%>" />
+							</div>
+							<div class="card-user">
+								<p><%= elem.user.username%></p>
+								<span><%= elem.date.toDateString() %></span>
+							</div>
+						</div>
+						<div class="card-paragraph">
+							<h4 class="title"><%= elem.title%></h4>
+						</div>
+						<div class="card-category">
+							<span>Category: <%= elem.category %></span>
+							<p class="text"><%= elem.description%></p>
+						</div>
+						<div class="card-image">
+							<img src="/images/uploads/<%= elem.picture%>" class="image" />
+						</div>
+
+						<hr class="divider" />
+						<div class="action-icons">
+							<div class="icon-group">
+								<!-- Like Icon -->
+								<a href="/post/like/<%= elem._id%>">
+									<% if(elem.likes.indexOf(user._id)!== -1){%>
+									<i class="ri-heart-3-fill icon-like"></i>
+									<%} else {%>
+									<i class="ri-heart-3-line icon-dislike"></i>
+									<%}%>
+								</a>
+							</div>
+							<div class="icon-chat">
+								<i
+									class="ri-chat-2-line"
+									onclick="commentClick('<%= elem._id%>') "
+									id="commentIcon"></i>
+							</div>
+						</div>
+					</div>
+					<div class="popup-overlay" id="commentpopup<%= elem._id %>">
+						<div class="popup-con">
+							<div class="popup">
+								<div class="close-comment">
+									<i
+										class="ri-delete-back-2-line"
+										onclick="closecomment('<%= elem._id %>')"></i>
+								</div>
+
+								<% elem.comment.forEach(function(comment, index) { %>
+								<div
+									class="comment-header comment-item <% if (index >= 10) { %> hidden-comment <% } %>">
+									<img
+										src="/images/uploads/<%= comment.user.Image %>"
+										alt="User Profile"
+										class="profile-pic" />
+									<span class="username"><%=comment.user.username %></span>
+								</div>
+								<div
+									class="comment-body comment-item <% if (index >= 10) { %> hidden-comment <% } %>">
+									<p><%= comment.content %></p>
+								</div>
+								<% }) %>
+
+								<!-- Read More Button -->
+								<% if (elem.comment.length > 10) { %>
+								<div class="read-more-container">
+									<button
+										class="read-more-btn"
+										onclick="showAllComments('<%= elem._id %>')">
+										Read More
+									</button>
+								</div>
+								<% } %>
+
+								<!-- New Comment Section -->
+								<form action="/post/<%= elem._id %>/comment" method="post">
+									<div class="comment-input-section">
+										<textarea
+											class="comment-textarea"
+											name="content"
+											placeholder="Write your comment..."></textarea>
+										<button class="submit-btn">Post Comment</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<% }) %>
+				</div>
+			</div>
+		</div>
+		<footer class="footer">
+			<div class="footer-links">
+				<a href="/home">Home</a>
+				<a href="/post/blog">Blog</a>
+				<a href="/profile/bio">Profile</a>
+				<a href="#">Contact</a>
+				<a href="#">About</a>
+			</div>
+			<div class="social-icons">
+				<a href="#"><i class="ri-facebook-circle-fill icon"></i></a>
+				<a href="#"><i class="ri-instagram-fill icon"></i></a>
+				<a href="#"><i class="ri-twitter-fill icon"></i></a>
+				<a href="#"><i class="ri-github-fill icon"></i></a>
+				<a href="#"><i class="ri-youtube-fill icon"></i></a>
+			</div>
+			<div class="footer-bottom">
+				<p>&copy; 2020 Your Company, Inc. All rights reserved.</p>
+			</div>
+		</footer>
+
+		<script>
+			document.addEventListener("DOMContentLoaded", function (event) {
+				var scrollpos = localStorage.getItem("scrollpos");
+				if (scrollpos) window.scrollTo(0, scrollpos);
+			});
+
+			window.onbeforeunload = function (e) {
+				localStorage.setItem("scrollpos", window.scrollY);
+			};
+
+			function commentClick(postId) {
+				// Select all hidden comments
+				const commentPopup = document.getElementById("commentpopup" + postId);
+				commentPopup.style.display = "block";
+				const hiddenComments = commentPopup.querySelectorAll(".hidden-comment");
+
+				// Show all hidden comments
+				hiddenComments.forEach((comment) => {
+					comment.style.display = "block";
+				});
+
+				// Hide the "Read More" button after clicking
+				const readMoreButton = commentPopup.querySelector(
+					".read-more-container"
+				);
+				if (readMoreButton) {
+					readMoreButton.style.display = "none";
+				}
+			}
+			function closecomment(closeId) {
+				const commentPopup = document.getElementById("commentpopup" + closeId);
+				commentPopup.style.display = "none";
+			}
+		</script>
+	</body>
+</html>

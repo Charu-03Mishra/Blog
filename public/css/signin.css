@@ -1,0 +1,120 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Ubuntu", sans-serif;
+	font-weight: 300;
+	font-style: normal;
+}
+
+.bg-cover {
+	background-size: cover;
+	background-position: center;
+}
+
+.bg-fixed {
+	background-attachment: fixed;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	padding: 16px;
+}
+
+.form-container {
+	background-color: #ebf8ff;
+	padding: 40px;
+	border-radius: 12px;
+	box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+	max-width: 400px;
+	width: 100%;
+	text-align: center;
+}
+
+.form-container h1 {
+	font-size: 2rem;
+	font-weight: 600;
+	color: #333;
+}
+
+.form-container p {
+	margin-top: 10px;
+	color: #666;
+}
+
+.input-group {
+	margin-top: 20px;
+	position: relative;
+}
+
+.input-group input {
+	width: 100%;
+	padding-top: 10px;
+	border: none;
+	border-bottom: 2px solid #141414;
+	background-color: transparent;
+	font-size: 16px;
+	color: #333;
+	transition: border-color 0.2s ease-in-out;
+}
+
+.input-group input:focus {
+	border-color: #555;
+	outline: none;
+}
+
+.input-group label {
+	position: absolute;
+	top: 30%;
+	left: 0;
+	transform: translateY(-10%);
+	font-size: 14px;
+	color: #888;
+	transition: all 0.3s linear;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+	top: -10px;
+	font-size: 14px;
+	color: #333;
+}
+
+.form-container button {
+	margin-top: 30px;
+	width: 100%;
+	padding: 15px;
+	background-color: #000;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	transition: background-color 0.2s ease-in-out;
+}
+
+.form-container button:hover {
+	background-color: #444;
+}
+
+.form-container .signup {
+	margin-top: 20px;
+	font-size: 14px;
+	color: #666;
+}
+
+.form-container .signup a {
+	color: #333;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.form-container .signup a:hover {
+	text-decoration: underline;
+}

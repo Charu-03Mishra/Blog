@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>EchoScript</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@100..800&family=Arima:wght@100..700&family=Bungee+Tint&display=swap"
+			rel="stylesheet" />
+		<link rel="stylesheet" href="/css/edit.css" />
+	</head>
+	<body>
+		<div class="container">
+			<form
+				action="/profile/upload"
+				method="post"
+				enctype="multipart/form-data">
+				<div class="form-container">
+					<h2>Edit Profile</h2>
+
+					<!-- Profile Picture -->
+					<div class="profile-picture">
+						<img
+							id="profilePic"
+							src="/images/uploads/<%= user.Image%>"
+							alt="" />
+						<input id="file" type="file" name="image" accept="image/*" />
+						<button id="editbtn" type="button">Edit Picture</button>
+					</div>
+
+					<!-- Username -->
+					<div class="input-group">
+						<label for="username">Username</label>
+						<input
+							type="text"
+							name="username"
+							id="username"
+							placeholder="Enter your username"
+							value="<%= user.username%>" />
+					</div>
+
+					<!-- Bio -->
+					<div class="input-group">
+						<label for="accounttype">AccountType</label>
+						<textarea
+							id="accounttype"
+							name="AccountType"
+							placeholder="Tell us AccountType...">
+	<%= user.AccountType %></textarea
+						>
+					</div>
+					<div class="input-group">
+						<label for="bio">Bio</label>
+						<textarea
+							id="bio"
+							name="bio"
+							placeholder="Tell us about yourself...">
+	<%= user.bio %></textarea
+						>
+					</div>
+
+					<!-- Save Button -->
+					<div class="save-button">
+						<button type="submit">Save</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<script>
+			// Trigger file input when "Edit Picture" button is clicked
+			document
+				.querySelector("#editbtn")
+				.addEventListener("click", function (e) {
+					e.preventDefault(); // Prevents the default button behavior
+					document.querySelector("#file").click();
+				});
+
+			// Update the profile picture when a new image is selected
+			document.querySelector("#file").addEventListener("change", function () {
+				const file = this.files[0];
+				if (file) {
+					const reader = new FileReader();
+
+					reader.onload = function (e) {
+						document.querySelector("#profilePic").src = e.target.result;
+					};
+
+					reader.readAsDataURL(file);
+				}
+			});
+		</script>
+	</body>
+</html>
